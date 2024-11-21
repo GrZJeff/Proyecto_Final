@@ -13,4 +13,6 @@ app.get("/", (_req: Request, res: Response) => {
     res.send("Hola desde mi servidor con TS");
 })
 
+app.post("/users/create")
+
 export default app;
