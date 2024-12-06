@@ -6,9 +6,19 @@ export const ListQuestionnaires = ({ rol }) => {
    const [questionnaires, setQuestionnaires] = useState([]);
 
     useEffect(() => {
-        const url = rol == "administrator" ? "/api/get-all-questionnaires" : "/api/get-questionnaires-by-user";
-        //axios.get(url) -> Devuelve un objeto "data";
+
     }, [])
+
+    const getData = async ()=>{
+        try {
+            const {data} = await axios.get("http://localhost:4000/questionnaires/get-all");
+            setQuestionnaires(data.questionnaires)
+        } catch (error) {
+            console.log(error)
+            alert("Hubo un error al obtener los cuestionarios")
+            
+        }
+    }
 
     return (
         <Container>
